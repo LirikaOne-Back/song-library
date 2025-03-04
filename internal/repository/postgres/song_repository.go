@@ -137,7 +137,7 @@ func (r *SongRepository) GetSongByID(ctx context.Context, id int64) (*model.Song
 
 	log.Debug("Получение песни по ID", "id", id)
 
-	query := `SELECT id, group, song, releaseDate, text, link, created_at, updated_at FROM songs WHERE id = $1`
+	query := `SELECT id, group_name, song_name, release_date, text, link, created_at, updated_at FROM songs WHERE id = $1`
 
 	var song model.Song
 	err := r.db.GetContext(ctx, &song, query, id)

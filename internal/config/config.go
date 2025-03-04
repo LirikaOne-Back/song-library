@@ -16,6 +16,7 @@ type Config struct {
 	DBName         string
 	ExternalAPIURL string
 	LogLevel       string
+	Environment    string
 }
 
 // LoadConfig загружает конфигурацию из .env файла
@@ -33,6 +34,7 @@ func LoadConfig() (*Config, error) {
 		DBName:         getEnv("DB_NAME", "song_library"),
 		ExternalAPIURL: getEnv("EXTERNAL_API_URL", "http://localhost:8081"),
 		LogLevel:       getEnv("LOG_LEVEL", "info"),
+		Environment:    getEnv("ENVIRONMENT", "development"),
 	}, nil
 }
 
